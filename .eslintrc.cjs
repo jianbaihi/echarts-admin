@@ -12,6 +12,7 @@ module.exports = {
     "prettier/prettier": "off",
     "semi":"off",
     "quotes": "off",
+    "vue/multi-word-component-names": "off",
     
   }
 }
