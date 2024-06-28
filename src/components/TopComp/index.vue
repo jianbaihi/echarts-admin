@@ -1,8 +1,10 @@
 <script>
 import TotalSale from './TotalSale.vue'
+import TotalOrder from './TotalOrder.vue'
 export default {
     components: {
         TotalSale,
+        TotalOrder,
     }
 }
 </script>
@@ -10,10 +12,10 @@ export default {
 <template>
     <div class="top-comp">
         <el-row :gutter="20">
-            <el-col :span="6"><TotalSale></TotalSale></el-col>
-            <el-col :span="6"><TotalSale></TotalSale></el-col>
-            <el-col :span="6"><TotalSale></TotalSale></el-col>
-            <el-col :span="6"><TotalSale></TotalSale></el-col>
+            <el-col :span="6"><TotalSale /></el-col>
+            <el-col :span="6"><TotalOrder /></el-col>
+            <el-col :span="6"><TotalSale /></el-col>
+            <el-col :span="6"><TotalSale /></el-col>
         </el-row>
     </div>
 </template>
