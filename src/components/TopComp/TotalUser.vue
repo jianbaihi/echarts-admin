@@ -6,14 +6,17 @@ export default {
       option: null,
     }
   },
+  props:['reportData'],
   components: {
     CommonCard,
   },
-  mounted() {
-    this.renderChart()
+  watch:{
+    reportData(newval){
+        this.renderChart(newval.userLastMonth,newval.userToday)
+    }
   },
   methods: {
-    renderChart() {
+    renderChart(data1,data2) {
       this.option = {
         xAxis: {
           type: 'value',
@@ -32,7 +35,7 @@ export default {
         series: [
           {
             type: 'bar',
-            data: [130],
+            data:[data1],
             stack: 'stack1',
             itemStyle: {
               color: 'green',
@@ -41,7 +44,7 @@ export default {
           },
           {
             type: 'bar',
-            data: [30],
+            data:[data2],
             stack: 'stack1',
             itemStyle: {
               color: 'gray',
@@ -51,7 +54,7 @@ export default {
           // 自定义绘制的图形
           {
             type: 'custom',
-            data: [130],
+            data: [data1],
             renderItem: function (params, api) {
               // 获取三角形的绘制位置
               const endPoint = api.coord([api.value(0), 0])
@@ -100,7 +103,7 @@ export default {
 
 <template>
   <div class="total-user">
-    <CommonCard title="累计用户数" value="768923">
+    <CommonCard title="累计用户数" :value="reportData.totalUser">
       <template #default>
         <v-chart :option="option"></v-chart>
       </template>
@@ -108,13 +111,17 @@ export default {
         <div class="wrapper">
           <div>
             <span>日同比</span>
-            <span class="css-1">12.35%</span>
-            <span class="increase"></span>
+            <span class="css-1">{{reportData.userGrowLastDay}}%</span>
+            <span class="
+                {increase: reportData.userGrowLastDay > 0,
+                decrease: reportData.userGrowLastDay < 0}"></span>
           </div>
           <div>
             <span>月同比</span>
-            <span class="css-1">23.97%</span>
-            <span class="decrease"></span>
+            <span class="css-1">{{reportData.userGrowLastMonth}}%</span>
+            <span class="{
+                increase: reportData.userGrowLastMonth > 0,
+                decrease: reportData.userGrowLastMonth < 0}"></span>
           </div>
         </div>
       </template>

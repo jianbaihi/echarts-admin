@@ -6,14 +6,17 @@ export default {
       option: null,
     }
   },
+  props:['reportData'],
   components: {
     CommonCard,
   },
-  mounted() {
-    this.renderChart()
+  watch:{
+    reportData(newval){
+        this.renderChart(newval.orderUserTrend)
+    }
   },
   methods: {
-    renderChart() {
+    renderChart(data) {
       this.option = {
         tooltip: {},
         xAxis: {
@@ -34,9 +37,7 @@ export default {
         series: [
           {
             name: '实时交易量',
-            data: [
-              123, 432, 541, 234, 576, 112, 789, 98, 787, 132, 450, 435, 666,
-            ],
+            data,
             type: 'bar',
             barWidth: '60%',
           },
@@ -49,13 +50,13 @@ export default {
 
 <template>
   <div class="today-user">
-    <CommonCard title="今日用户交易数" value="30">
+    <CommonCard title="今日用户交易数" :value="reportData.userToday">
       <template #default>
         <v-chart :option="option"></v-chart>
       </template>
       <template #footer>
         <span>退货率</span>
-        <span class="css-1">3.57%</span>
+        <span class="css-1">{{reportData.returnRate}}%</span>
       </template>
     </CommonCard>
   </div>

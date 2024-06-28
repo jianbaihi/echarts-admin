@@ -3,25 +3,36 @@ import TotalSale from './TotalSale.vue'
 import TotalOrder from './TotalOrder.vue'
 import TodayUser from './TodayUser.vue'
 import TotalUser from './TotalUser.vue'
+import { getReportData } from '../../api'
 export default {
-    components: {
-        TotalSale,
-        TotalOrder,
-        TodayUser,
-        TotalUser
+  data() {
+    return {
+      reportData: {},
     }
+  },
+  components: {
+    TotalSale,
+    TotalOrder,
+    TodayUser,
+    TotalUser,
+  },
+  async mounted() {
+    const res = await getReportData()
+    // console.log(res,'report data')
+    this.reportData = res.data
+  },
 }
 </script>
 
 <template>
-    <div class="top-comp">
-        <el-row :gutter="20">
-            <el-col :span="6"><TotalSale /></el-col>
-            <el-col :span="6"><TotalOrder /></el-col>
-            <el-col :span="6"><TodayUser /></el-col>
-            <el-col :span="6"><TotalUser /></el-col>
-        </el-row>
-    </div>
+  <div class="top-comp">
+    <el-row :gutter="20">
+      <el-col :span="6"><TotalSale :reportData = "reportData"/></el-col>
+      <el-col :span="6"><TotalOrder :reportData = "reportData"/></el-col>
+      <el-col :span="6"><TodayUser :reportData = "reportData"/></el-col>
+      <el-col :span="6"><TotalUser :reportData = "reportData"/></el-col>
+    </el-row>
+  </div>
 </template>
 
 <!-- 我们希望能把样式作用于组件内部的时候，可以把scope去掉，
