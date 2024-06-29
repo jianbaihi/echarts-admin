@@ -102,7 +102,7 @@ export default {
 </script>
 
 <template>
-  <div class="total-user">
+  <!-- <div class="total-user"> -->
     <CommonCard title="累计用户数" :value="reportData.totalUser">
       <template #default>
         <v-chart :option="option"></v-chart>
@@ -112,21 +112,21 @@ export default {
           <div>
             <span>日同比</span>
             <span class="css-1">{{reportData.userGrowLastDay}}%</span>
-            <span class="
+            <span :class="
                 {increase: reportData.userGrowLastDay > 0,
                 decrease: reportData.userGrowLastDay < 0}"></span>
           </div>
           <div>
             <span>月同比</span>
             <span class="css-1">{{reportData.userGrowLastMonth}}%</span>
-            <span class="{
+            <span :class="{
                 increase: reportData.userGrowLastMonth > 0,
                 decrease: reportData.userGrowLastMonth < 0}"></span>
           </div>
         </div>
       </template>
     </CommonCard>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style lang="scss" scoped>

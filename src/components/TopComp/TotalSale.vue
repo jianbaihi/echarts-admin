@@ -9,7 +9,7 @@ import CommonCard from './CommonCard.vue';
 </script>
 
 <template>
-    <div class="total-sale">
+    <!-- <div class="total-sale"> -->
         <CommonCard title="累计销售额" :value="reportData.salesToday">
             <template #default>
                 <div>
@@ -32,7 +32,7 @@ import CommonCard from './CommonCard.vue';
                     <span class="css-1">￥{{reportData.salesLastDay}}</span>
             </template>
         </CommonCard>
-    </div>
+    <!-- </div> -->
 </template>
 
 <style lang="scss" scoped>

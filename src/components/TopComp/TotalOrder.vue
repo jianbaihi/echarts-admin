@@ -58,7 +58,7 @@ export default {
 </script>
 
 <template>
-  <div class="total-order">
+  <!-- <div class="total-order"> -->
     <CommonCard title="累计订单额" :value="reportData.orderToday">
       <template #default>
         <v-chart :option="option"></v-chart>
@@ -68,7 +68,7 @@ export default {
         <span class="css-1">￥{{reportData.orderLastDay}}</span>
       </template>
     </CommonCard>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style lang="scss" scoped></style>

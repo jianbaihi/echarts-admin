@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-  <div class="today-user">
+  <!-- <div class="today-user"> -->
     <CommonCard title="今日用户交易数" :value="reportData.userToday">
       <template #default>
         <v-chart :option="option"></v-chart>
@@ -59,7 +59,9 @@ export default {
         <span class="css-1">{{reportData.returnRate}}%</span>
       </template>
     </CommonCard>
-  </div>
+  <!-- </div> -->
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

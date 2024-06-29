@@ -26,7 +26,7 @@ export default {
 
 <template>
   <div class="top-comp">
-    <el-row :gutter="20">
+    <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="6"><TotalSale :reportData = "reportData"/></el-col>
       <el-col :span="6"><TotalOrder :reportData = "reportData"/></el-col>
       <el-col :span="6"><TodayUser :reportData = "reportData"/></el-col>

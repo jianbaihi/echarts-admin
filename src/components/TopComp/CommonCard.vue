@@ -22,6 +22,10 @@
 
 <style lang="scss" scoped>
 .common-card {
+  height: 100%;
+  .el-card{
+    height: 100%;
+  }
   .title {
     font-size: 12px;
     color: #777;
