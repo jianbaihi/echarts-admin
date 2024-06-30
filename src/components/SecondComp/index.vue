@@ -40,8 +40,19 @@ export default {
     },
     methods: {
         handleSelect(index) {
-            // this.activeIndex = index;
             console.log(index, 'index');
+            if (index === '1') {
+                this.renderChart(
+                    this.saleData.saleFulleYearAxis,
+                    this.saleData.saleFulleYear)
+                this.list = this.saleData.saleRank
+            }else{
+
+                this.renderChart(
+                    this.saleData.visitFullYeadAxis,
+                    this.saleData.visitFullYear)
+                this.list = this.saleData.visitRank
+            }
         },
         renderChart(data1,data2) {
             this.option = {
