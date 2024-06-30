@@ -22,6 +22,12 @@ export default {
   </div>
 </template>
 
+<style>
+span{
+  font-size: 14px !important;
+  color: #464545;
+}
+</style>
 <style lang="scss" scoped>
 .app{
   padding: 20px;

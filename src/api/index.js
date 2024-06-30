@@ -5,3 +5,8 @@ import request from './axios.js'
 export function getReportData(){
     return request.get('/reportdata')
 }
+
+// 获取第二栏的数据请求方法
+export function getSaleData(){
+    return request.get('/saledata')
+}

@@ -40,8 +40,6 @@ export default {
 <style lang="scss">
 .top-comp {
   span {
-    font-size: 14px !important;
-    color: #464545;
     &.increase {
       display: inline-block;
       width: 0;
